@@ -1,6 +1,6 @@
 import { Buffer } from "./deps.ts";
-import { decode as JPEGDecode } from "./src/Decoder.ts";
-import { encode as JPEGEncode } from "./src/Encoder.ts";
+import { decode as JPEGDecode } from "./src/Decoder.js";
+import { encode as JPEGEncode } from "./src/Encoder.js";
 
 export interface RawImageData<T> {
     width: number;
@@ -26,6 +26,7 @@ class JPEG {
      * @param quality Image quality
      */
     static encode(imgData: RawImageData<BufferLike>, quality?: number): BufferRet {
+        // @ts-ignore
         return JPEGEncode(imgData, quality);
     }
 
